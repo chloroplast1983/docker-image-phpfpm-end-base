@@ -238,7 +238,7 @@ RUN set -ex \
     ) \
     && rm -r redis \
     && pecl install mongodb-1.2.10 \
-    && docker-php-ext-enable memcached redis mongodb 
+    && docker-php-ext-enable memcached redis mongodb \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $extensionDeps \
     && echo "memcached.default_consistent_hash = on" >> /usr/local/etc/php/conf.d/docker-php-ext-memcached.ini \
     && echo "extension=marmot.so" > /usr/local/etc/php/conf.d/marmot.ini \

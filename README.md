@@ -1,62 +1,45 @@
-# docker-image-phpfpm-end
+# 后端基础服务镜像
 
 ---
 
-需要把框架的`index.php`移动至`public`目录下.
-创建`cache\`文件夹
-
-
-慢日志`www.conf`
-
-request_slowlog_timeout = 5s
-
-slowlog = log/$pool.log.slow
-
-docker 需要 --cap-add=SYS_PTRACE
-
-
-enable_dl?
-
-
-##
+## 基本编译配置项
 
 * `--disable-session`禁用`session`
 * `--enable-zip`
-* `-enable-pcntl`
+* `-enable-pcntl` 启用进程, 后端需要
 * `--enable-sysvmsg`
 * `--enable-sysvsem`
 * `--enable-sysvshm`
 * `--enable-bcmath` rabbitmq 需要
 
-## ini
+## 扩展安装
 
-* `allow_url_fopen` 开启, composer 需要
+### apt包
 
-## apt
+#### memcached
 
-安装: `libmemcached-dev` `zlib1g-dev`
+* `libmemcached-dev`
+* `zlib1g-dev`
 
-memcached 需要指定 `--disable-memcache-session`, 否则会出现`Cannot find php_session.h`
+#### mongo
 
-redis 需要指定 `--disable-redis-session`
+* `libssl-dev`
 
-mongodb 需要安装 `libssl-dev`
+### 编译
+
+#### memcached
+
+因为在后端服务不使用`session`, 所以编译扩展不需要支持该项.
+
+指定`--disable-memcache-session`, 否则会出现`Cannot find php_session.h`.
+
+#### redis
+
+因为在后端服务不使用`session`, 所以编译扩展不需要支持该项.
+
+需要指定 `--disable-redis-session`, 否则会出现`Cannot find php_session.h`.
 
 
+## 版本记录
 
-
-
-## `open_basedir` 不使用
-
-open_basedir开启后会影响I/O，因为每个调用的文件都需要判断是否在限制目录内.
-
-使用open_basedir可以限制程序可操作的目录和文件,提高系统安全性.但会影响I/O性能导致系统执行变慢,因此需要根据具体需求,在安全与性能上做平衡.
-
-## 错误
-
-`html_errors = Off`
-
-## cig-fcgi
-
-* fastcgi.logging
-* cgi.fix_pathinfo
+* `0.1`: 初始化基础镜像
