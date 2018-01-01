@@ -14,6 +14,11 @@
 
 ## 扩展安装
 
+* inotify `2.0.0`
+* memcached `3.0.3`
+* mongo `1.2.10`
+* redis `3.1.3`
+
 ### apt包
 
 #### memcached

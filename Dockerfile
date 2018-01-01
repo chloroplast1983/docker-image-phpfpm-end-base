@@ -213,6 +213,7 @@ RUN set -ex \
     " \
     && apt-get update && apt-get install -y  git $extensionDeps --no-install-recommends \ 
     && rm -r /var/lib/apt/lists/* \
+    && pecl install inotify-2.0.0 \
     && pecl download memcached-3.0.3 \
     && mkdir -p memcached \
     && tar -xf memcached-3.0.3.tgz  -C memcached --strip-components=1 \
@@ -238,7 +239,7 @@ RUN set -ex \
     ) \
     && rm -r redis \
     && pecl install mongodb-1.2.10 \
-    && docker-php-ext-enable memcached redis mongodb \
+    && docker-php-ext-enable memcached redis mongodb inotify \
     && echo "memcached.default_consistent_hash = on" >> /usr/local/etc/php/conf.d/docker-php-ext-memcached.ini \
     && echo "extension=marmot.so" > /usr/local/etc/php/conf.d/marmot.ini 
 
