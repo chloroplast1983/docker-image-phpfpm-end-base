@@ -44,7 +44,6 @@
 
 需要指定 `--disable-redis-session`, 否则会出现`Cannot find php_session.h`.
 
-
 ## 版本记录
 
 * `1.0`: 初始化基础镜像
