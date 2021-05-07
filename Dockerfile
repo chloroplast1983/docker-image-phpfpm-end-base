@@ -217,8 +217,8 @@ RUN set -ex \
     && pecl install inotify-2.0.0 \
     && pecl download memcached-3.1.5 \
     && mkdir -p memcached \
-    && tar -xf memcached-3.0.3.tgz  -C memcached --strip-components=1 \
-    && rm memcached-3.0.3.tgz \
+    && tar -xf memcached-3.1.5.tgz  -C memcached --strip-components=1 \
+    && rm memcached-3.1.5.tgz \
     && ( \
         cd memcached \
         && phpize \
