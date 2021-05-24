@@ -212,7 +212,7 @@ RUN set -ex \
     zlib1g-dev \
     libssl-dev \
     " \
-    && apt-get update && apt-get install -y  git $extensionDeps --no-install-recommends \ 
+    && apt-get update && apt-get install -y inotify-tools git $extensionDeps --no-install-recommends \ 
     && rm -r /var/lib/apt/lists/* \
     && pecl install inotify-2.0.0 \
     && pecl download memcached-3.1.5 \

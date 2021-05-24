@@ -6,7 +6,7 @@
 
 * `--disable-session`禁用`session`
 * `--enable-zip`
-* `-enable-pcntl` 启用进程, 后端需要
+* `--enable-pcntl` 启用进程, 后端需要
 * `--enable-sysvmsg`
 * `--enable-sysvsem`
 * `--enable-sysvshm`
@@ -54,3 +54,5 @@
 	* 取消默认安装`confd`
 	* 更新`composer 2.0.13`
 	* 更新`memcached 3.1.5`
+* `1.5`
+	* 安装`inotify-tools`
