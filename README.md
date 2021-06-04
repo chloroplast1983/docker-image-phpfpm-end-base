@@ -56,3 +56,5 @@
 	* 更新`memcached 3.1.5`
 * `1.5`
 	* 安装`inotify-tools`
+* `1.6`
+	* 安装`gd`库
