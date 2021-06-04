@@ -58,3 +58,4 @@
 	* 安装`inotify-tools`
 * `1.6`
 	* 安装`gd`库
+	* 安装`unzip`
